@@ -27,7 +27,7 @@ const News_Container = () => {
 switch(title){
     case "business":
         if(Business_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Business_Page_News(news.data.articles));
         }else{
