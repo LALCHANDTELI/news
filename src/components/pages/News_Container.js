@@ -37,7 +37,7 @@ switch(title){
 
     case "technology":
         if(Technology_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             console.log(news)
             set_news_container(news.data.articles);
           dispatch(Technology_Page_News(news.data.articles));
@@ -48,7 +48,7 @@ switch(title){
 
     case "entertainment":
         if(Entertainment_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Entertainment_Page_News(news.data.articles));
         }else{
@@ -60,7 +60,7 @@ switch(title){
 
     case "health":
         if(Health_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Health_Page_News(news.data.articles));
         }else{
@@ -72,7 +72,7 @@ switch(title){
     
     case "science":
         if(Science_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Science_Page_News(news.data.articles));
         }else{
@@ -84,7 +84,7 @@ switch(title){
     
     case "sports":
         if(Sports_News===null){
-            var news = await axios.get(`${process.env.API_URL}&category=${title}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&category=${title}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Sports_Page_News(news.data.articles));
         }else{
@@ -96,7 +96,7 @@ switch(title){
 
     case undefined:
         if(Home_News===null){
-            var news = await axios.get(`${process.env.API_URL}&apikey=${API_KEY}`);
+            var news = await axios.get(`${process.env.API_URL}&x-api-key=${API_KEY}`);
             set_news_container(news.data.articles);
           dispatch(Home_Page_News(news.data.articles));
         }else{
@@ -106,7 +106,7 @@ switch(title){
 
     default:
 
-       var news = await axios.get(`${process.env.API_SEARCH_URL}?${title}&apikey=${API_KEY}`);
+       var news = await axios.get(`${process.env.API_SEARCH_URL}?${title}&x-api-key=${API_KEY}`);
        if(news.data.articles.length===0){
 set_news_container("Data Not Found")
        }
